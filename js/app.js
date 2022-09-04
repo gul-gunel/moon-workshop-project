@@ -51,56 +51,56 @@ document.querySelectorAll('.slider__item-1').forEach(sliderItem => {
 
 // SLIDE-2
 class Slider2 {
-	
+
 	constructor($el) {
 		this.$el = $el;
 		this.$refs = {
-			items: [... document.querySelectorAll('[data-slider]', this.$el)],
+			items: [...document.querySelectorAll('[data-slider]', this.$el)],
 		};
-		this.length = this.$refs.items.length-1;
+		this.length = this.$refs.items.length - 1;
 	}
-	
+
 	next() {
 		this.slide('next');
 	}
-	
+
 	prev() {
 		this.slide('prev');
 	}
-	
-	slide(direction){
+
+	slide(direction) {
 		this.$refs.items.map(el => {
 			const pos = Number(el.getAttribute('data-position'));
-			const next = (pos+1) > this.length ? 0 : pos+1;
-			const prev = (pos-1) < 0 ? this.length : pos-1;
+			const next = (pos + 1) > this.length ? 0 : pos + 1;
+			const prev = (pos - 1) < 0 ? this.length : pos - 1;
 			const go = direction == "next" ? next : prev;
-			
+
 			el.setAttribute('data-position', go)
 		})
 	}
-	
-	jump(pos){
-		for(let i = 0; i < pos; i++) {
-			const timeout = setTimeout(()=>{
+
+	jump(pos) {
+		for (let i = 0; i < pos; i++) {
+			const timeout = setTimeout(() => {
 				this.slide('prev')
 			}, 100)
 		}
 	}
-	
+
 };
 
 const slider2 = new Slider2(document.querySelector('[data-component="slider-2"]'));
 
-document.querySelector('.arrow--prev').addEventListener('click', ()=>{
+document.querySelector('.arrow--prev').addEventListener('click', () => {
 	slider2.next()
 })
-document.querySelector('.arrow--next').addEventListener('click', ()=>{
+document.querySelector('.arrow--next').addEventListener('click', () => {
 	slider2.prev()
 })
 document.querySelectorAll('.slider__item').forEach(sliderItem => {
-	sliderItem.addEventListener('click', ()=>{
+	sliderItem.addEventListener('click', () => {
 		const pos = Number(sliderItem.getAttribute("data-position"));
-		
+
 		slider2.jump(pos)
 	})
 })
@@ -117,9 +117,35 @@ plays.forEach((play) => {
 		play.nextElementSibling.classList.add('show');
 	})
 });
-closes.forEach(function(close){
-	close.addEventListener('click', function(){
+closes.forEach(function (close) {
+	close.addEventListener('click', function () {
 		console.log(close.parentNode);
 		close.parentNode.classList.remove('show');
 	})
+});
+
+
+
+// NAVBAR 
+// Scroll - Background
+const navbar = document.querySelector('.navbar');
+const logo = document.querySelector('.logo');
+let lastKnownScrollPosition = 0;
+document.addEventListener('scroll', function (e) {
+	lastKnownScrollPosition = window.scrollY;
+
+	if (lastKnownScrollPosition > 88) {
+		navbar.style.background = '#000';
+	} else {
+		navbar.style.background = 'transparent'
+	}
+});
+// Open - Close
+const hamburger = document.querySelector(".hamburger");
+const nav = document.querySelector(".nav");
+const select = document.querySelector(".select");
+
+hamburger.addEventListener("click", function(){
+	nav.classList.toggle("oc");
+	select.classList.toggle("oc");
 });
