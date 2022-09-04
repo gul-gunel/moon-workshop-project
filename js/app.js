@@ -104,3 +104,22 @@ document.querySelectorAll('.slider__item').forEach(sliderItem => {
 		slider2.jump(pos)
 	})
 })
+
+
+
+// MODAL
+const plays = document.querySelectorAll('.sec-6__card');
+const closes = document.querySelectorAll('.vid-close');
+const body = document.getElementsByTagName('body');
+
+plays.forEach((play) => {
+	play.addEventListener('click', () => {
+		play.nextElementSibling.classList.add('show');
+	})
+});
+closes.forEach(function(close){
+	close.addEventListener('click', function(){
+		console.log(close.parentNode);
+		close.parentNode.classList.remove('show');
+	})
+});
