@@ -670,7 +670,7 @@ header {
 	flex-basis: 52%;
 	position: relative;
 }
-.triangle{
+.triangle2{
 	position: absolute;
 	left: 100%;
 	transform: translateX(-100%);
