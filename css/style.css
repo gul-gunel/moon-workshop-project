@@ -369,6 +369,7 @@ header {
 	flex-basis: 49.3%;
 	display: flex;
 	justify-content: space-between;
+	/* flex-wrap: wrap; */
 	max-height: 39.8rem;
 }
 .sec-3__right, .sec-5__right {
@@ -435,6 +436,7 @@ header {
 .sec-4__right {
 	flex-basis: 50%;
 	display: flex;
+	/* flex-wrap: wrap; */
 	align-items: center;
 	justify-content: space-evenly;
 	padding: 0 10rem;
@@ -946,8 +948,9 @@ input::placeholder{
 	}
 	.sec-4__left, .sec-4__right{
 		flex-basis: 100%;
+		padding: 0;
 		text-align: center;
-		justify-content: space-between;
+
 	}
 	.sec-4__left{
 		margin-bottom: 2rem;
@@ -1028,6 +1031,7 @@ input::placeholder{
 @media all and (max-width: 823px){
 	.header__title{
 		font-weight: 400;
+		font-size: 7.462rem;
 	}
 	.header__left{
 		font-weight: 600;
@@ -1041,7 +1045,12 @@ input::placeholder{
 	.sec-2__1, .sec-2__2, .sec-2__3, .sec-2__4{
 		flex-basis: 100%;
 	}
-
+	.sec-2__1{
+		justify-content: space-around;
+	}
+	.sec-2__item{
+		text-align: center;
+	}
 }
 @media all and (max-width: 768px){
 	.container{
@@ -1067,6 +1076,13 @@ input::placeholder{
 	.footer__part, .footer__bottom {
 		text-align: center;
 	}
+	.slide-1__header {
+		top: -70px;
+	}
+	.sec-3__text, .sec-5__text {
+		width: 150%;
+		z-index: 3;
+	}
 }
 @media all and (max-width: 576px){
 	.sec-7__form__input, .sec-7__form__select {
@@ -1074,16 +1090,56 @@ input::placeholder{
 	}
 	.about {
 		width: 100%;
+		position: relative;
+		z-index: 5;
 	}
 	.select{
 		display: none !important;
 	}
-}
-@media all and (max-width: 576px){
+	.header__title{
+		font-weight: 400;
+		font-size: 5.462rem;
+	}
+	.slide-2 .text {
+		margin-bottom: 2rem;
+	}
+	.sec-1{
+		flex-wrap: wrap;
+		padding: 3rem !important;
+	}
+	.sec-1__mid {
+		flex-basis: 100%;
+		text-align: center;
+		padding-top: 3rem;
+	}
+
+	.sec-4__right {
+		flex-basis: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	.title {
+		font-size: 2.5rem;
+	}
+	.text {
+		font-size: 1.7rem;
+	}
+	.sec-7__blogs__top__right h2 {
+		font-size: 3rem;
+	}
 
 }
-@media all and (max-width: 576px){
-
+@media all and (max-width: 480px){
+	.slider .slider__item{
+		height: 35rem;
+	}
+}
+@media all and (max-width: 396px){
+	.slider .slider__item{
+		height: 27rem;
+	}
 }
 @media all and (max-width: 576px){
 
